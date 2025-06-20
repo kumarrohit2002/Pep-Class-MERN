@@ -22,9 +22,11 @@
 
 <body>
     <h1 style="text-align: center;">FORM</h1>
+    <h3 id="greetings"></h3>
     <form onsubmit="handleFormSubmit(event)">
         <!-- <input type="text" name="username" placeholder="Enter your nickname" onkeydown="handleUserName(event)" > -->
-        <input type="text" name="username" placeholder="Enter your nickname" onkeyup="handleUserName(event)" required>
+        <!-- <input type="text" name="username" placeholder="Enter your nickname" onkeyup="handleUserName(event)" required> -->
+        <input type="text" name="username" placeholder="Enter your nickname" onchange="handleUserName(event)" required>
         <br>
         <input type="email" name="useremail" placeholder="Enter your Email" required>
         <br>

@@ -1,6 +1,9 @@
+const title = document.getElementById('greetings');
+
 const handleUserName = (e) => {
-    const target = e.target;
-    console.log(target.value);
+    console.log('typed')
+    console.log(e.target.value);
+    console.log('--------------------------------------')
 }
 
 const handleFormSubmit = (e) => {
