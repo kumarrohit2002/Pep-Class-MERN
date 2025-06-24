@@ -8331,29 +8331,34 @@ const dummyData = {
 
 const cardsParentElem = document.getElementById('cards-parent')
 
+const handleViewVideo = (videoId) => {
+    console.log('handleViewVideo called');
+    window.open(`./viewPage.html?videoId=${videoId}`, "_self");
+};
 
 const renderTrendingVideos = (dataObj) => {
     const { list } = dataObj;
 
     list.forEach((element) => {
-        const { author, publishedText, title, viewCountText, videoThumbnails, authorThumbnails } = element;
+        const { author, publishedText, videoId, title, viewCountText, videoThumbnails, authorThumbnails } = element;
 
         const newDiv = document.createElement("div");
         newDiv.className = "trending-card";
 
         newDiv.innerHTML = `
-                <div className='video-thumbnail-container'>
-                    <img src=''>
+                <div className='video-thumbnail-container' onclick="handleViewVideo('${videoId}')">
+                    <img src='${videoThumbnails[0].url}' class='video-thumb-img' >
                 </div>
                 <div className='card-details'>
                     <div className='author-image-container'>
-                        <img src='${videoThumbnails[0].url}' class='video-thumb-img'>
+                        <img src=''>
                     </div>
                     <div className='video-data-right'>
                         <p className='video-title'>${title}</p>
+                        <p className='author-title'>${author}</p>
                         <div>
-                            <p className='view-count'>${author}</p>
-                            <p className='published-text'>${viewCountText}</p>
+                            <p className='view-count'>${viewCountText}</p>
+                            <p className='published-text'>${publishedText}</p>
                         </div>
                     </div>
                 </div>
@@ -8362,15 +8367,6 @@ const renderTrendingVideos = (dataObj) => {
         cardsParentElem.appendChild(newDiv);
     });
 };
-
-
-
-
-
-
-
-
-
 
 const getTrendingVideos = () => {
     //     const request = fetch('https://youtube138.p.rapidapi.com/v2/trending',
