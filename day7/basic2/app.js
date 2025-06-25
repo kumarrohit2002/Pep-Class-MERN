@@ -30,7 +30,7 @@ const card = () => {
 const Container = (
     <div>
         {Card1({title:'Title'})}
-        <Card1 title='Notice...'/>
+        <Card1 title='Notice...' />
         {Card1({title:'Warning!'})}
     </div>
 )
