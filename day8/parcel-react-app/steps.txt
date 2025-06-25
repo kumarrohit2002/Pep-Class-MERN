@@ -1,0 +1,13 @@
+0. install node
+1. >> npm init -y
+2. go to npmjs.com and install the required packages
+3. >> npm i react
+4. >>npm i react-dom
+5. this creates node_modules and package-lock.json for you
+   In package.json --> dependencies arry is created
+
+6. we need bundler?
+7. we are going to user parcel (for today) since it is easy to setup
+    and will help us build and understand react app from scratch
+
+8. >> npm i parcel
