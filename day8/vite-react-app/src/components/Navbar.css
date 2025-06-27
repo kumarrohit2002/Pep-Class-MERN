@@ -1,0 +1,12 @@
+.navbar-container{
+    background:rgb(218, 218, 111);
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.navbar-container a{
+    margin: 20px;
+    font-size: 30px;
+}
