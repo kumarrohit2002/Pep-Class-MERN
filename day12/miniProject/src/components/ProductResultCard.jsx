@@ -1,13 +1,16 @@
 const ProductResultCard = (props) => {
-    const { title, price, thumbnail } = props;
+    const { title, price, thumbnail,rating } = props;
 
     return (
-        <div className="p-4 rounded-lg bg-gray-200">
+        <div className="bg-gray-50 shadow-lg rounded-lg p-4">
             <img src={thumbnail} />
             <p>{title}</p>
-            <p>Rs. {price * 85}</p>
+            <div className="flex justify-between">
+              <p>Rs. {price * 85}</p>
+              <p>Rating: {rating}</p>
+            </div>
         </div>
     );
 };
 
-export { ProductResultCard };
+export default ProductResultCard ;
