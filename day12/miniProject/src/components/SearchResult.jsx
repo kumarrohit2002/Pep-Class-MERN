@@ -7,20 +7,25 @@ import ProductResultCart from "./ProductResultCard";
 const SearchResults = (props) => {
   const [results, setResults] = useState([]);
   const { searchQuery } = props; // a
+  const [page,setPage]=useState(1);
+  const [total,setTotal]=useState(0);
+
+  const limit=4;
 
   const getSearchResults = async () => {
     const response = await fetch(
-      `https://dummyjson.com/products/search?q=${searchQuery}`
+      `https://dummyjson.com/products/search?q=${searchQuery}&skip=${limit*(page-1)}&limit=${limit}`
     );
     const data = await response.json();
     console.log(data);
     setResults(data.products);
+    setTotal(data.total)
   };
 
   useEffect(() => {
-    const id=setTimeout(getSearchResults,1000);  //resone of many api call -> debaunsing
+    const id=setTimeout(getSearchResults,1000); // debounce API call
     return ()=>clearTimeout(id);
-  }, [searchQuery]); // dependency array: initial render only
+  }, [searchQuery,page]); // dependency array: initial render only
   
 
   return (
@@ -39,6 +44,19 @@ const SearchResults = (props) => {
             />
           );
         })}
+      </div>
+      <div className="flex items-center justify-center mt-10 gap-2">
+        <button className="bg-amber-500 rounded-sm p-1 px-2" onClick={()=>{
+          if(page>1) setPage(page-1);
+        }} >PREV</button>
+        <p className="underline">{page}</p>
+        <button className="bg-amber-500 rounded-sm p-1 px-2" onClick={()=>{
+
+          if(total>=limit*(page-1)+limit)setPage(page+1);
+
+          else alert('limit full')
+        }
+          }>NEXT</button>
       </div>
     </div>
   );
