@@ -1,8 +1,15 @@
+import { useNavigate } from "react-router";
+
 const ProductResultCard = (props) => {
-    const { title, price, thumbnail,rating } = props;
+    const { title,id, price, thumbnail,rating } = props;
+    const navigate=useNavigate();
+
+    const handelViewProduct=()=>{
+        navigate(`/${id}/view`)
+    }
 
     return (
-        <div className="bg-gray-50 shadow-lg rounded-lg p-4">
+        <div className="bg-gray-50 shadow-lg rounded-lg p-4" onClick={handelViewProduct}>
             <img src={thumbnail} />
             <p>{title}</p>
             <div className="flex justify-between">

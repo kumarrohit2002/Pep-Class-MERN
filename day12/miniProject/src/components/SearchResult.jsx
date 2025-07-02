@@ -37,6 +37,7 @@ const SearchResults = (props) => {
           return (
             <ProductResultCart
               key={elem.id} // help react to identify each card uniquely
+              id={elem.id}
               title={elem.title}
               price={elem.price}
               rating={elem.rating}
