@@ -18,8 +18,10 @@ const SearchResults = (props) => {
   };
 
   useEffect(() => {
-    getSearchResults();
+    const id=setTimeout(getSearchResults,1000);  //resone of many api call -> debaunsing
+    return ()=>clearTimeout(id);
   }, [searchQuery]); // dependency array: initial render only
+  
 
   return (
     <div>
