@@ -1,0 +1,7 @@
+1. download NODEJS
+2. check version
+    >>node -version
+    >> npm -version
+3.  npm init -y
+4. create a javascript file
+5. node <file_name>
