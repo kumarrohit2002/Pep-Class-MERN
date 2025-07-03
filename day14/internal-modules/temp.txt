@@ -1,0 +1,5 @@
+ABCD ==> In operating systems, 
+a thread is the smallest unit of execution that can be scheduled by the OS. 
+It's a subset of a process, allowing multiple tasks to run concurrently within 
+the same process. Threads share resources like memory and files, 
+making them more efficient than traditional processes for multitasking. 
