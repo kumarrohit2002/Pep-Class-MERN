@@ -27,6 +27,7 @@ const saveObjectToArrayInFile = async (obj, filePath) => {
     }
 };
 
+
 // easy (*)
 const getAllDataFromArrayFromFile = async (filePath) => {
     try {
@@ -61,7 +62,7 @@ const editObjectFromArrayFromFile = async (newObj, idx, filePath) => {
             
             fileData[idx]={...fileData[idx],...newObj};// overwrite or merge new val
             
-            await fs.truncate(filePath,0); 
+            // await fs.truncate(filePath,0); 
             await fs.writeFile(filePath,JSON.stringify(fileData));
 
             console.log('Data Updated successfully');
@@ -99,7 +100,7 @@ const deleteObjectFromArrayFromFile = async (idx, filePath) => {
             }
             
             fileData.splice(idx,1);
-            await fs.truncate(filePath,0);
+            // await fs.truncate(filePath,0);
             await fs.writeFile(filePath,JSON.stringify(fileData));
 
             console.log('Data delete successFully!!!');
