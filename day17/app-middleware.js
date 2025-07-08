@@ -3,7 +3,6 @@ const express=require('express')
 const app=express();
 
 require('dotenv').config();
-const {apiRouter}=require('./api/v1/routes');
 
 // app level MiddleWare
 app.use(express.json());
@@ -16,9 +15,27 @@ app.use((req,res,next)=>{
     next();
 })
 
+app.get('/',(req,res)=>{
+    res.json({
+        success:true,
+        message:'Server is Running',
+        data:{}
+    })
+})
 
-app.use('/api/v1',apiRouter)
+app.get('/hello',(req,res)=>{
+    res.json({
+        success:true,
+        message:'hii hello how are you',
+        data:{}
+    })
+})
 
+// middleware
+app.use((req,res,next)=>{  //it will call when route not match
+    console.log('Route Not match');
+    next();
+})
 
 
 app.listen(2700,()=>{
