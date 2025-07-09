@@ -1,20 +1,15 @@
 const express=require('express');
-const { createProductController } = require('./controller');
+const { createProductController,getAllProduct, updateProductController,deleleProductController } = require('./controller');
 
 const productRouter=express.Router();
 
 
-productRouter.get('/',(req,res)=>{
-    res.json({
-        success:true,
-        message:'Product List Fetched!!',
-        data:{}
-    })
-})
+productRouter.get('/',getAllProduct)
 
 productRouter.post('/',createProductController);
 
-
+productRouter.patch('/:productId',updateProductController);
+productRouter.delete('/:productId',deleleProductController);
 
 
 
