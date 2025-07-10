@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router';
+import { MyContext } from '../context/Mycontext';
 
 const Header = () => {
+  const {count}=useContext(MyContext);
   return (
     <div className='py-4 px-6 flex justify-between items-center bg-amber-100 shadow-md'> {/* Added items-center and shadow-md */}
       <Link to={'/'} className='font-bold text-emerald-600 text-2xl'>Shopping App</Link> {/* Increased font size slightly */}
@@ -22,6 +24,7 @@ const Header = () => {
       <div className='flex gap-4'> {/* Increased gap between links */}
         <Link to={'/profile'} className='text-emerald-700 hover:text-emerald-900 text-lg font-medium transition duration-300 ease-in-out '>Profile</Link>
         <Link to={'/signup'} className='text-emerald-700 hover:text-emerald-900 text-lg font-medium transition duration-300 ease-in-out'>Signup</Link>
+        <p>value: {count}</p>
       </div>
     </div>
   )

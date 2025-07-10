@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/Header";
+import { MyContext } from "../context/Mycontext";
 
 const Profile = () => {
   const [products, setProducts] = useState([]);
   const [editProductId, setEditProductId] = useState("");
   const [price, setPrice] = useState(-1);
+  const {setCount}=useContext(MyContext);
 
   const getData = async () => {
+    console.log('get Data called');
     try {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/products`,
@@ -224,6 +227,7 @@ const Profile = () => {
                     >
                       Edit
                     </button>
+                    <button onClick={()=>{setCount((prev)=>prev+1)}}>+</button>
                   </>
                 )}
               </div>
