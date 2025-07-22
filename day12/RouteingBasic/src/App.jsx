@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import SearchPage from "./pages/SearchPage";
 import VIewPage from "./pages/VIewPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import UserForm from "./pages/UserForm";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/view" element={<VIewPage />} />
+          <Route path="/userform" element={<UserForm />} />
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

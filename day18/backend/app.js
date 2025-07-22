@@ -2,7 +2,13 @@ const express=require('express')
 const cors =require('cors');
 
 const app=express();
-app.use(cors())
+app.use(cors(
+{ origin: 'http://localhost:5173', // Adjust this to your frontend URL
+ credentials: true // Allow credentials (cookies, authorization headers, etc. to be sent)  
+}
+))
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 require('dotenv').config();
 require('./config/db')
